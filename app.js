@@ -1,17 +1,20 @@
-var mongoose = require('mongoose');
-var express = require('express');
+var app = function () {
+	var mongoose = require('mongoose');
+	var express = require('express');
 
-mongoose.connect('mongodb://localhost/extinct-mammals');
+	mongoose.connect('mongodb://localhost/posts');
 
-var app = express();
-app.use(express.bodyParser());
+	var app = express();
+	app.use(express.bodyParser());
 
-var api = require('./api.js');
+	var api = require('./api.js');
 
-app.get('/mammals/:type?', api.get);
+	app.get('/posts', api.get);
 
-app.post('/mammals', api.post);
+	app.post('/posts', api.post);
 
-app.listen(8889);
+	return app;
+}();
 
 module.exports = app;
+

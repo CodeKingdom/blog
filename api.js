@@ -1,30 +1,25 @@
-var ExtinctMammal = require('./extinct-mammal.js');
+var Post = require('./post.js');
 
-var listMammals = function(req, res) {
-  var filter = {};
-  if (req.params.type) {
-    filter = {type: req.params.type};
-  }
-  ExtinctMammal.find(filter)
-  .sort('name')
-  .select('name year_extinct type')
-  .exec(function(err, mammals) {
-    res.send(mammals);
+var listPosts = function(req, res) {
+  Post.find()
+  .sort('title')
+  .exec(function(err, posts) {
+    res.send(posts);
   });  
 };
 
-var saveMammal = function(req, res) {
-  var newMammal = new ExtinctMammal({
-    name: req.body.name,
-    type: req.body.type,
-    year_extinct: req.body.year_extinct
+var savePost = function(req, res) {
+  var newPost = new Post({
+    title: req.body.title,
+    body: req.body.body
   });
-  newMammal.save(function(err) {
+  console.log(req.body);
+  newPost.save(function(err) {
     res.send({success: true});
   });
 };
 
 module.exports = {
-  get: listMammals,
-  post: saveMammal
+  get: listPosts,
+  post: savePost
 };

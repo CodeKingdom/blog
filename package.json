@@ -1,8 +1,12 @@
 {
-  "name": "extinct-mammals",
-  "version": "0.1.0",
+  "name": "blog",
+  "version": "0.0.0",
   "dependencies": {
     "express" : "*",
     "mongoose": "*"
+  },
+  "subdomain": "experimentBlog8889",
+  "scripts": {
+    "start": "node start.js"
   }
 }
