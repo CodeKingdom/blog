@@ -1,0 +1,8 @@
+{
+  "name": "extinct-mammals",
+  "version": "0.1.0",
+  "dependencies": {
+    "express" : "*",
+    "mongoose": "*"
+  }
+}
