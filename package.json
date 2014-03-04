@@ -5,6 +5,10 @@
     "express" : "*",
     "mongoose": "*"
   },
+   "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  },
   "subdomain": "experimentBlog8889",
   "scripts": {
     "start": "node start.js"
