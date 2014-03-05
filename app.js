@@ -5,7 +5,7 @@ var app = function () {
 	mongoose.connect('mongodb://dantreasure:yoyoman@ds033569.mongolab.com:33569/blog');
 
 	var app = express();
-	app.use(express.json());
+	app.use(express.bodyParser());
 
 	var post = require('./api/post.js');
 
