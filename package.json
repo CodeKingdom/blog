@@ -2,7 +2,7 @@
   "name": "blog",
   "version": "0.0.2",
   "dependencies": {
-    "express" : "*",
+    "express" : "3.3.4",
     "mongoose": "*",
     "mocha": "*",
     "expect.js": "*",
