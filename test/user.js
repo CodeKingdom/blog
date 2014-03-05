@@ -15,7 +15,7 @@ var expect = require('expect.js');
 
 describe('Blog user API', function(){  
   it('retrieves a list of users', function(done){
-    superagent.get('http://localhost:5000/users')
+    superagent.get('http://experimentblog8889.jit.su/users')
       .end(function(e, res){                
         expect(e).to.eql(null);
         expect(typeof res.body).to.eql('object');       
