@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "dependencies": {
     "express" : "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "mocha": "*",
+    "expect.js": "*",
+    "superagent": "*"
   },
    "engines": {
     "node": "0.10.x",
@@ -11,6 +14,7 @@
   },
   "subdomain": "experimentBlog8889",
   "scripts": {
-    "start": "node start.js"
+    "start": "node start.js",
+    "test": "make test"
   }
 }

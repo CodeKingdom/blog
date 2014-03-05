@@ -7,17 +7,31 @@ var app = function () {
 	var app = express();
 	app.use(express.bodyParser());
 
-	var api = require('./api.js');
+	var post = require('./api/post.js');
 
-	app.get('/posts/:id', api.getOne);
+	var user = require('./api/user.js');
 
-	app.get('/posts', api.get);
+	app.get('/posts/:id', post.getOne);
 
-	app.post('/posts', api.post);
+	app.get('/posts', post.get);
 
-	app.delete('/posts/:id', api.remove);
+	app.post('/posts', post.post);
 
-	app.put('/posts/:id', api.update);
+	app.delete('/posts/:id', post.remove);
+
+	app.put('/posts/:id', post.update);
+
+	app.get('/users/:id', user.getOne);
+
+	app.get('/users', user.get);
+
+	app.post('/users', user.post);
+
+	app.delete('/users/:id', user.remove);
+
+	app.put('/users/:id', user.update);
+
+	app.get('/users/:id/posts', user.getPosts);
 
 	return app;
 }();

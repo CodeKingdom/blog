@@ -1,4 +1,5 @@
-var Post = require('./post.js');
+var Post = require('../models/post.js');
+var User = require('../models/user.js');
 
 var listPosts = function(req, res) {  
 	Post.find()
@@ -22,21 +23,34 @@ var getPost = function(req, res) {
 var savePost = function(req, res) {
 	var newPost = new Post({
 		title: req.body.title,
-		body: req.body.body
+		body: req.body.body,
+		_owner: req.body._owner			
 	});
 	newPost.save(function(err) {
-		res.send({success: true});
-	});
+		if(err){
+
+		} else {
+			//Push the new post to the user
+			User.findByIdAndUpdate(req.body._owner, { $push: { posts: newPost._id }}, function (err, user) {
+				if(err) {
+					return handleError(err);
+				} else{
+					res.send(user);	
+				}
+			});
+			res.send({success:true});
+		}		
+	});	
 };
 
 var deletePost = function(req, res){
-	var query = Post.findOne({_id: req.params.id});
+	var query = Post.findById(req.params.id);
 
 	query.remove(function(err){
 		if(!err){
-			res.send({success:true})
+			res.send({success:true});
 		}
-	})
+	});
 };
 
 var updatePost = function(req, res){
@@ -46,11 +60,11 @@ var updatePost = function(req, res){
 		post.body = req.body.body || post.body;
 		
 		post.save(function (err) {
-	    if (err) return (err);
-	    res.send(post);
-  	});
-	})
-}
+			if (err) return (err);
+			res.send(post);
+		});
+	});
+};
 
 module.exports = {
 	get: listPosts,
