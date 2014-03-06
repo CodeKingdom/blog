@@ -10,7 +10,7 @@
 
 // app.delete('/posts/:id', post.remove);
 
-// app.put('/posts/:id', post.update);
+// app.put('/posts/:id', post.update)
 
 var superagent = require('superagent')
 var expect = require('expect.js')
