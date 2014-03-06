@@ -12,17 +12,17 @@
 
 // app.put('/posts/:id', post.update)
 
-var superagent = require('superagent')
-var expect = require('expect.js')
+// var superagent = require('superagent')
+// var expect = require('expect.js')
 
-describe('Blog post API', function(){  
-  it('retrieves an object', function(done){
-    superagent.get('http://experimentblog8889.jit.su/users/1')
-      .end(function(e, res){                
-        expect(e).to.eql(null)
-        expect(typeof res.body).to.eql('object')
-        expect(res.body.name).to.eql('Dan Treasure');                               
-        done()
-      });
-  })     
-})
+// describe('Blog post API', function(){  
+//   it('retrieves an object', function(done){
+//     superagent.get('http://experimentblog8889.jit.su/users/1')
+//       .end(function(e, res){                
+//         expect(e).to.eql(null)
+//         expect(typeof res.body).to.eql('object')
+//         expect(res.body.name).to.eql('Dan Treasure');                               
+//         done()
+//       });
+//   })     
+// })
