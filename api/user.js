@@ -21,6 +21,7 @@ var getUser = function(req, res) {
 };
 
 var saveUser = function(req, res) {
+	console.log(req.body);
 	var newUser = new User({
 		name: req.body.name,
 		_id: req.body._id,
