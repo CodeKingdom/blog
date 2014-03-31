@@ -24,7 +24,9 @@ var savePost = function(req, res) {
 	var newPost = new Post({
 		title: req.body.title,
 		body: req.body.body,
-		_owner: req.body._owner			
+		_owner: req.body._owner,
+		author: req.body.author,
+		highlight: req.body.highlight
 	});
 	newPost.save(function(err) {
 		if(err){
