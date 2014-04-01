@@ -21,6 +21,7 @@ var getPost = function(req, res) {
 };
 
 var savePost = function(req, res) {
+	console.log(req.body);
 	var newPost = new Post({
 		title: req.body.title,
 		body: req.body.body,

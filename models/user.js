@@ -6,6 +6,7 @@ var User = mongoose.model('User', new mongoose.Schema({
     name: String,
     _id: Number,
     age: Number,
+	bio: String,
     posts : [{ type: Schema.Types.ObjectId, ref: 'Post' }]
 }));
 
