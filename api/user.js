@@ -24,7 +24,7 @@ var saveUser = function(req, res) {
 	console.log(req.body);
 	var newUser = new User({
 		name: req.body.name,
-		_id: req.body._id,
+		email: req.body.email,
 		age: req.body.age,
 		bio: req.body.bio
 	});

@@ -4,9 +4,9 @@ var Post = require('./post.js');
 
 var User = mongoose.model('User', new mongoose.Schema({
     name: String,
-    _id: Number,
     age: Number,
 	bio: String,
+	email: String,
     posts : [{ type: Schema.Types.ObjectId, ref: 'Post' }]
 }));
 
