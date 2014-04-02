@@ -36,12 +36,11 @@ var savePost = function(req, res) {
 			//Push the new post to the user
 			User.findByIdAndUpdate(req.body._owner, { $push: { posts: newPost._id }}, function (err, user) {
 				if(err) {
-					return handleError(err);
+					res.send(err);
 				} else{
 					res.send(user);	
 				}
 			});
-			res.send({success:true});
 		}		
 	});	
 };

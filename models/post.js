@@ -4,7 +4,7 @@ var User = require('./user.js');
 
 var Post = mongoose.model('Post', new mongoose.Schema({
     title: String,
-    _owner : { type: Number, ref: 'User' },
+    _owner : { type: Schema.ObjectId, ref: 'User' },
     body: String,
 	author: String,
 	highlight: String,
