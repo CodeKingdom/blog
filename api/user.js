@@ -1,12 +1,14 @@
+"use strict";
+
 var Post = require('../models/post.js');
 var User = require('../models/user.js');
 
-var listUsers = function(req, res) {  
+var listUsers = function(req, res) {
 	User.find()
 		.sort('name')
 		.exec(function(err, users) {
 			res.send(users);
-		}); 
+		});
 };
 
 var getUser = function(req, res) {
@@ -17,11 +19,10 @@ var getUser = function(req, res) {
 			res.send(err);
 		}
 		res.send(user);
-	});	
+	});
 };
 
 var saveUser = function(req, res) {
-	console.log(req.body);
 	var newUser = new User({
 		name: req.body.name,
 		email: req.body.email,
@@ -45,10 +46,10 @@ var deleteUser = function(req, res){
 
 var updateUser = function(req, res){
 	User.findById(req.body.id, function(err, user){
-		
+
 		user.name = req.body.name || user.name;
 		user.age = req.body.age || user.age;
-		
+
 		user.save(function (err) {
 		    if (err) return (err);
 		    res.send(user);
@@ -57,7 +58,7 @@ var updateUser = function(req, res){
 }
 
 var getPosts = function(req, res){
-	User.findById(req.params.id, function(err, user){		
+	User.findById(req.params.id, function(err, user){
 		Post.find()
 			.where("_owner").equals(req.params.id)
 			.exec(function(err, posts){

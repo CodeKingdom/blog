@@ -6,8 +6,8 @@ var Post = mongoose.model('Post', new mongoose.Schema({
     title: String,
     _owner : { type: Schema.ObjectId, ref: 'User' },
     body: String,
-	author: String,
-	highlight: String,
+  	author: String,
+  	highlight: String,
     created_at: { type: Date, default: Date.now }
 }));
 

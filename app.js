@@ -2,11 +2,10 @@ var app = function () {
 	var mongoose = require('mongoose');
 	var express = require('express');
 
-	mongoose.connect('mongodb://dantreasure:yoyoman@ds033569.mongolab.com:33569/blog');
+	mongoose.connect('mongodb://localhost/test');
 
 	var app = express();
 	app.use(express.bodyParser());
-
 
 	var post = require('./api/post.js');
 
